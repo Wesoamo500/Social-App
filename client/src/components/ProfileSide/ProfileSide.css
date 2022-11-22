@@ -1,0 +1,7 @@
+.profile-side{
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    gap: 1rem;
+    align-items: center;
+}
