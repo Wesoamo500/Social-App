@@ -4,13 +4,14 @@ import './PostShare.css'
 
 import {UilScenery,UilPlayCircle,UilTimes,UilLocationPoint,UilSchedule} from '@iconscout/react-unicons'
 import { useDispatch, useSelector } from 'react-redux'
-import { uploadImage } from '../../actions/uploadAction'
+import { uploadImage, uploadPost } from '../../actions/uploadAction'
 
 const PostShare = () => {
     const loading = useSelector((state)=>state.postReducer.uploading)
     const dispatch = useDispatch()
     const [image, setImage] = useState(null)
     const imageRef = useRef()
+    const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
     const desc = useRef()
     const {user} = useSelector((state)=>state.authReducers.authData)
     
@@ -49,7 +50,7 @@ const PostShare = () => {
     }
   return (
     <div className="post-share">
-        <img src={Profile} alt="profile"/>
+        <img src={user.profilePicture ? serverPublic + user.profilePicture : serverPublic + "defaultProfile.jpg"} alt="profile"/>
         <div>
             <input type="text" required ref={desc} name="" placeholder='Drop the gossip' />
             <div className="post-options">
