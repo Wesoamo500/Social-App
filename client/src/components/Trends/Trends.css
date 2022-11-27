@@ -12,6 +12,10 @@
     width: 1.5rem;
     height: 1.5rem;
 }
+.nav-icons>a>img{
+    width: 1.5rem;
+    height: 1.5rem;
+}
 
 .t-button{
     height: 3rem;

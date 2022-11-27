@@ -1,5 +1,4 @@
 import React,{useState,useRef} from 'react'
-import Profile from '../../img/cro.jpg'
 import './PostShare.css'
 
 import {UilScenery,UilPlayCircle,UilTimes,UilLocationPoint,UilSchedule} from '@iconscout/react-unicons'

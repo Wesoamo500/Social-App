@@ -1,6 +1,7 @@
 import React from 'react'
 import './ProfileCard.css'
 import {useSelector} from 'react-redux'
+import {Link} from 'react-router-dom';
 
 const ProfileCard = () => {
     const {user} = useSelector((state)=>state.authReducers.authData)
@@ -8,26 +9,26 @@ const ProfileCard = () => {
 
     const ProfilePage = false;
   return (
-    <div className="profile-card">
+    <div className="profile-card"> 
         <div className="profile-img">
             <img src={user.coverPicture ? serverPublic + user.coverPicture : serverPublic + "defaultCover.jpg"} alt="" />
             <img src={user.profilePicture ? serverPublic + user.profilePicture : serverPublic + "defaultProfile.jpg" } alt="" />
         </div>
         <div className="profile-name">
-            <span>Cristiano Ronaldo</span>
-            <span>Professional footballer</span>
+            <span>{user.firstname}{user.lastname}</span>
+            <span>{user.worksAt ? user.worksAt : "write occupation"}</span>
         </div>
         <div className="gossip-status">
             <hr/>
             <div>
                 <div className="gossip">
-                    <span>3,456</span>
+                    <span>{user.following.length}</span>
                     <span>Followers</span>
                 </div>
                 <div className="vl"></div>
                 <div className="gossip">
-                    <span>1</span>
-                    <span>Followings</span>
+                    <span>{user.followers.length}</span>
+                    <span>Followings</span> 
                 </div>
                 {ProfilePage && (
                     <>
@@ -42,9 +43,11 @@ const ProfileCard = () => {
             <hr/>
         </div>
         {
-            !ProfilePage&&
+            ProfilePage?"":
                 <span>
-                    My Profile
+                    <Link style={{textDecoration:"none", color:'inherit'}} to={`/profile/${user._id}`}>
+                        My Profile
+                    </Link> 
                 </span>
         }
     </div>
