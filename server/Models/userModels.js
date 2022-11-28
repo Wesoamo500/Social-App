@@ -21,12 +21,13 @@ const UserSchema = mongoose.Schema({
         type:Boolean,
         default:false,
     },
-    profilePicture: String,
-    coverPicture: String,
+    profileImage: String,
+    coverImage: String,
     about: String,
     livesin: String,
     worksAt: String,
     status: String,
+    country:String,
     followers:[],
     following:[]
 },{timestamps: true})

@@ -39,7 +39,11 @@ const InfoCard = () => {
             {user._id === profileUserId ?
                 (<div>
                     <UilPen width="2rem" height="1.2rem" onClick={()=>setModalOpened(true)}/>
-                    <ProfileModal modalOpened={modalOpened} setModalOpened={setModalOpened}/>
+                    <ProfileModal
+                        modalOpened={modalOpened}
+                        setModalOpened={setModalOpened}
+                        data = {user}
+                    />
                 </div>):(null)
             }
         </div>
