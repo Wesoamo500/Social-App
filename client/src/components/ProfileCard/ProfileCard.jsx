@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 const ProfileCard = ({location}) => {
     const {user} = useSelector((state)=>state.authReducers.authData)
     const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
-    const posts = useSelector((state)=>state.postReducers.posts)
+    const posts = useSelector((state)=>state.postReducer.posts)
     
   return (
     <div className="profile-card"> 
@@ -43,7 +43,7 @@ const ProfileCard = ({location}) => {
             <hr/>
         </div>
         {
-            location?" ":
+            !location?" ":
                 <span>
                     <Link style={{textDecoration:"none", color:'inherit'}} to={`/profile/${user._id}`}>
                         My Profile

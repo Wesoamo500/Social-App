@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { uploadImage, uploadPost } from '../../actions/uploadAction'
 
 const PostShare = () => {
-    const loading = useSelector((state)=>state.postReducer.uploading)
+    const {loading} = useSelector((state)=>state.postReducer)
     const dispatch = useDispatch()
     const [image, setImage] = useState(null)
     const imageRef = useRef()
@@ -69,7 +69,7 @@ const PostShare = () => {
                 <UilSchedule/>
                 Schedule
             </div>
-            <button className='button ps-button' disabled={loading} onClick={handleShare}>
+            <button className='button ps-button'  onClick={handleShare}>
                 {loading ? "uploading..." : "Share"}
             </button>
             <div style={{display:"none"}}>

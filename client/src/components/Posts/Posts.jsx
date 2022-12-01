@@ -9,15 +9,15 @@ import {useParams} from 'react-router-dom'
 const Posts = () => {
   const params = useParams();
   const dispatch = useDispatch();
-  const {user} = useSelector((state)=>state.authReducer.authData);
+  const {user} = useSelector((state)=>state.authReducers.authData);
   let {posts, loading} = useSelector((state)=>state.postReducer);
 
   useEffect(()=>{
     dispatch(getTimelinePosts(user._id))
   },[])
 
-  if(!posts) return "no posts";
-  if(params.id) posts = posts.filter((post)=>post.userId === params.id)
+  if(!posts) {return "no posts";}
+  if(params.id) {posts = posts.filter((post)=>post.userId === params.id)}
   return (
     <div className="posts">
         {loading ? "Fetching Posts...":posts.map((post,id)=>{
