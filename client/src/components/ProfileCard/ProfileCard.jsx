@@ -11,8 +11,8 @@ const ProfileCard = ({location}) => {
   return (
     <div className="profile-card"> 
         <div className="profile-img">
-            <img src={user.coverPicture ? serverPublic + user.coverPicture : serverPublic + "defaultCoverPicture.jpg"} alt="" />
-            <img src={user.profilePicture ? serverPublic + user.profilePicture : serverPublic + "defaultProfilePicture.jpg" } alt="" />
+            <img src={user.coverPicture ? serverPublic + user.coverPicture : serverPublic + "defaultCover.jpg"} alt="" />
+            <img src={user.profilePicture ? serverPublic + user.profilePicture : serverPublic + "defaultProfile.jpg" } alt="" />
         </div>
         <div className="profile-name">
             <span>{user.firstname}{user.lastname}</span>
