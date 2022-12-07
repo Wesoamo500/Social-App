@@ -69,7 +69,7 @@ function ProfileModal({modalOpened,setModalOpened,data}) {
       opened={modalOpened}
       onClose={()=>setModalOpened(false)}
     >
-        <form className='info-form'>
+        <form className='info-form' onSubmit={handleSubmit}>
             <h3>Your info</h3>
 
             <div>
